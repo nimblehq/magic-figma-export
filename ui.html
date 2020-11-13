@@ -1,13 +1,10 @@
-<h2>Rectangle Creator</h2>
-<p>Count: <input id="count" value="5"></p>
-<button id="create">Create</button>
+<h2>Magic Fixma Export</h2>
+<button id="export">Export</button>
 <button id="cancel">Cancel</button>
 <script>
 
-document.getElementById('create').onclick = () => {
-  const textbox = document.getElementById('count');
-  const count = parseInt(textbox.value, 10);
-  parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
+document.getElementById('export').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'export-variables' } }, '*')
 }
 
 document.getElementById('cancel').onclick = () => {

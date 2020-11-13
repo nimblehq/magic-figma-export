@@ -1,0 +1,14 @@
+{
+  "name": "Magic",
+  "version": "1.0.0",
+  "description": "Convert your design system to Bootstrap",
+  "main": "code.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.18.2"
+  }
+}

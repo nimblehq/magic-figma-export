@@ -1,7 +1,7 @@
 {
   "name": "Magic",
   "version": "1.0.0",
-  "description": "Your Figma Plugin",
+  "description": "Convert your design system to Bootstrap",
   "main": "code.js",
   "scripts": {
     "build": "tsc -p tsconfig.json"

@@ -1,4 +1,6 @@
 body {
+  display: flex;
+  flex-direction: column;
   font: 12px sans-serif;
   text-align: center;
   margin: 20px;
@@ -10,7 +12,7 @@ button {
   color: black;
   border: none;
   padding: 8px 15px;
-  margin: 0 5px;
+  margin: 0;
   outline: none;
 }
 
@@ -33,6 +35,17 @@ textarea {
   border-color: lightgray;
 }
 
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper,
+.content {
+  flex-grow: 1;
+  height: 100%;
+}
+
 .content.hide {
   display: none;
 }
@@ -49,4 +62,10 @@ textarea {
 
 #copyBtn {
   margin-top: 16px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }

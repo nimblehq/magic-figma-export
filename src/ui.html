@@ -1,11 +1,17 @@
-<div id='welcomeContent' class='content content--welcome'>
-  <h2>Welcome to Figma Magic</h2>
-  <p>Setup Bootstrap styling with a single click of a button.</p>
-  <p>It's that easy.</p>
-  <button id='generate' class='btn--primary'>Get Started</button>
+<div class="content-wrapper">
+  <div id="welcomeContent" class="content content--welcome">
+    <h2>Welcome to Figma Magic</h2>
+    <p>Setup Bootstrap styling with a single click of a button.</p>
+    <p>It's that easy.</p>
+    <button id="generate" class="btn--primary">Get Started</button>
+  </div>
+  
+  <div id="mainContent" class="content content--main hide">
+    <textarea id="codeField" class="code-field"></textarea>
+    <button id="copyBtn" class="btn btn--secondary btn--full-width">Copy to clipboard</button>
+  </div>
 </div>
-
-<div id='mainContent' class='content content--main hide'>
-  <textarea id='codeField' class='code-field'></textarea>
-  <button id='copyBtn' class='btn btn--secondary btn--full-width'>Copy to clipboard</button>
+<div class="footer">
+  <span class="plugin-version">Magic 0.0.1</span>
+  <a href="https://github.com/nimblehq/magic-figma-export">Feedback / Issues</a>
 </div>

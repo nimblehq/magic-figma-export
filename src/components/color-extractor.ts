@@ -1,4 +1,13 @@
 export class ColorExtractor {
+
+// In order to extract the colors values, the following node names should be used in the following structure:
+// colorSystem
+// - colorMain: should set the main color as background color
+// -- colorLabel: should contain the name of the color
+// - colorList: should list the color in different contrast
+// -- color: should set the color as background color
+// --- colorLabel: should contain the name of the color
+
   NODE_NAMES = {
     colorSystem: 'Color system',
     colorMain: 'color header',
@@ -41,9 +50,6 @@ export class ColorExtractor {
         }
       });
     });
-  
-    console.log(this.mainColors);
-    console.log(this.colorList);
   }
 
   protected rgbToHex({r, g, b}): string {

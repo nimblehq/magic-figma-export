@@ -18,24 +18,13 @@ export class ColorExtractor {
   
   THEME_COLORS = ['$primary', '$secondary', '$success', '$info', '$warning', '$danger', '$light', '$dark'];
   
-  mainColors = [];
-  colorList = [];
+  mainColors = {};
+  colorList = {};
 
   constructor() {}
 
   extractColorVariables(): void {
     let colorSystem = figma.currentPage.findChild(node => node.name === this.NODE_NAMES.colorSystem);
-  
-    let mainColorNodes = (<FrameNode>colorSystem).findAll(node => node.name === this.NODE_NAMES.colorMain);
-    mainColorNodes.forEach(mainColorNode => {
-      mainColorNode = (<FrameNode>mainColorNode);
-      let background = mainColorNode.fills[0];
-      let colorNameNode = (<TextNode>mainColorNode.findOne(node => node.name === this.NODE_NAMES.colorLabel));
-  
-      if (background != null && colorNameNode != null) {
-        this.mainColors[colorNameNode.characters] = this.rgbToHex(background.color);
-      }
-    });
   
     let colorListNodes = (<FrameNode>colorSystem).findAll(node => node.name === this.NODE_NAMES.colorList);
     colorListNodes.forEach(colorListNode => {
@@ -50,6 +39,25 @@ export class ColorExtractor {
         }
       });
     });
+
+    let mainColorNodes = (<FrameNode>colorSystem).findAll(node => node.name === this.NODE_NAMES.colorMain);
+    mainColorNodes.forEach(mainColorNode => {
+      mainColorNode = (<FrameNode>mainColorNode);
+      let background = mainColorNode.fills[0];
+      let colorNameNode = (<TextNode>mainColorNode.findOne(node => node.name === this.NODE_NAMES.colorLabel));
+
+      if (background != null && colorNameNode != null) {
+        const colorValue = this.rgbToHex(background.color);
+        const colorVariable = this.colorVariableFromValue(colorValue);
+        this.mainColors[colorNameNode.characters] = colorVariable.length > 0 ? colorVariable : colorValue;
+      }
+    });
+  }
+
+  protected colorVariableFromValue(colorValue): string {
+    let variable = Object.keys(this.colorList).find(key => this.colorList[key] === colorValue);
+
+    return variable != null ? variable : '';
   }
 
   protected rgbToHex({r, g, b}): string {
@@ -60,5 +68,4 @@ export class ColorExtractor {
     var hex = number.toString(16).split('.')[0];
     return hex.length === 1 ? '0' + hex : hex;
   }
-  
 }

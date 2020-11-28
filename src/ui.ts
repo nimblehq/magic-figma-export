@@ -1,7 +1,4 @@
-<h2>Magic Fixma Export</h2>
-<button id="export">Export</button>
-<button id="cancel">Cancel</button>
-<script>
+import './ui.css'
 
 document.getElementById('export').onclick = () => {
   parent.postMessage({ pluginMessage: { type: 'export-variables' } }, '*')
@@ -10,5 +7,3 @@ document.getElementById('export').onclick = () => {
 document.getElementById('cancel').onclick = () => {
   parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
 }
-
-</script>

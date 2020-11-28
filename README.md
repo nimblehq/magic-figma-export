@@ -38,3 +38,20 @@ We recommend writing TypeScript code using Visual Studio code:
     you reopen Visual Studio Code.
 
 That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
+
+## Development
+
+Run webpack:
+```
+npm run webpack
+```
+
+Add plugin on Figma:
+
+Open [Figma](https://www.figma.com/downloads/)
+Go to Menu > Plugins > Development > Manage Plugin.
+Then add new plugin by link the existing plugin on the `manifest.json` file
+
+Open the plugin:
+Go to Menu > Plugins > Development > choose the plugin by name.
+

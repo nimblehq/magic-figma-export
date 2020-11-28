@@ -3,6 +3,7 @@ body {
   text-align: center;
   margin: 20px;
 }
+
 button {
   border-radius: 5px;
   background: white;
@@ -10,20 +11,42 @@ button {
   border: none;
   padding: 8px 15px;
   margin: 0 5px;
-  box-shadow: inset 0 0 0 1px black;
   outline: none;
 }
-#create {
-  box-shadow: none;
-  background: #18A0FB;
+
+button.btn--primary {
+  background-color: #007bff;
   color: white;
 }
-input {
-  border: none;
-  outline: none;
-  padding: 8px;
+
+button.btn--secondary {
+  background-color: #6c757d;
+  color: white;
 }
-input:hover { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1); }
-button:focus { box-shadow: inset 0 0 0 2px #18A0FB; }
-#create:focus { box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.3); }
-input:focus { box-shadow: inset 0 0 0 2px #18A0FB; }
+
+button.btn--full-width {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  border-color: lightgray;
+}
+
+.content.hide {
+  display: none;
+}
+
+.content--main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.code-field {
+  flex-grow: 1;
+}
+
+#copyBtn {
+  margin-top: 16px;
+}

@@ -8,10 +8,6 @@ figma.ui.onmessage = msg => {
     let colorExtractor = new ColorExtractor();
     colorExtractor.extractColorVariables();
 
-    // TODO: display color variables on plugin UI
-    console.log(colorExtractor.mainColors);
-    console.log(colorExtractor.colorList);
-
     figma.ui.postMessage({
       mainColor: colorExtractor.mainColors,
       colorList: colorExtractor.colorList

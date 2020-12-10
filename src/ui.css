@@ -1,3 +1,11 @@
+:root {
+  --black: #000;
+  --white: #fff;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --lightgray: #d3d3d3;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -8,8 +16,8 @@ body {
 
 button {
   border-radius: 5px;
-  background: white;
-  color: black;
+  background: var(--white);
+  color: var(--black);
   border: none;
   padding: 8px 15px;
   margin: 0;
@@ -17,13 +25,13 @@ button {
 }
 
 button.btn--primary {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--primary);
+  color: var(--white);
 }
 
 button.btn--secondary {
-  background-color: #6c757d;
-  color: white;
+  background-color: var(--secondary);
+  color: var(--white);
 }
 
 button.btn--full-width {
@@ -32,7 +40,7 @@ button.btn--full-width {
 
 textarea {
   width: 100%;
-  border-color: lightgray;
+  border-color: var(--lightgray);
 }
 
 .content-wrapper {
@@ -43,7 +51,7 @@ textarea {
 .content-wrapper,
 .content {
   flex-grow: 1;
-  height: 100%;
+  height: calc(100% - 24px);
 }
 
 .content.hide {

@@ -6,11 +6,18 @@ figma.ui.resize(360, 280);
 figma.ui.onmessage = msg => {
   if (msg.type === 'generate-variables') {
     let colorExtractor = new ColorExtractor();
-    colorExtractor.extractColorVariables();
 
-    figma.ui.postMessage({
-      mainColor: colorExtractor.mainColors,
-      colorList: colorExtractor.colorList
-    });
+    try {
+      colorExtractor.extractColorVariables();
+
+      figma.ui.postMessage({
+        mainColor: colorExtractor.mainColors,
+        colorList: colorExtractor.colorList
+      });
+    } catch (error) {
+      figma.ui.postMessage({
+        errorMessage: error.message
+      });
+    }
   }
 };

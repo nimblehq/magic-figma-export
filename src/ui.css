@@ -54,7 +54,8 @@ textarea {
   height: calc(100% - 24px);
 }
 
-.content.hide {
+.content.hide,
+.hide {
   display: none;
 }
 
@@ -62,6 +63,10 @@ textarea {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.content--error {
+  text-align: center; 
 }
 
 .code-field {

@@ -25,6 +25,10 @@ export class ColorExtractor {
 
   extractColorVariables(): void {
     let colorSystem = figma.currentPage.findChild(node => node.name === this.NODE_NAMES.colorSystem);
+
+    if (colorSystem === null) {
+      throw new Error('Cannot find color system on this page. You might be on the wrong page 🤔');
+    }
   
     let colorListNodes = (<FrameNode>colorSystem).findAll(node => node.name === this.NODE_NAMES.colorList);
     colorListNodes.forEach(colorListNode => {

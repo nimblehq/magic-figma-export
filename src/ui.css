@@ -1,7 +1,7 @@
 :root {
   --black: #000;
   --white: #fff;
-  --primary: #007bff;
+  --primary: #e40046;
   --secondary: #6c757d;
   --lightgray: #d3d3d3;
 }
@@ -81,4 +81,13 @@ textarea {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  background-image: url('./assets/images/logo/magic-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
 }

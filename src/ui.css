@@ -1,29 +1,79 @@
+:root {
+  --black: #000;
+  --white: #fff;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --lightgray: #d3d3d3;
+}
+
 body {
+  display: flex;
+  flex-direction: column;
   font: 12px sans-serif;
   text-align: center;
   margin: 20px;
 }
+
 button {
   border-radius: 5px;
-  background: white;
-  color: black;
+  background: var(--white);
+  color: var(--black);
   border: none;
   padding: 8px 15px;
-  margin: 0 5px;
-  box-shadow: inset 0 0 0 1px black;
+  margin: 0;
   outline: none;
 }
-#create {
-  box-shadow: none;
-  background: #18A0FB;
-  color: white;
+
+button.btn--primary {
+  background-color: var(--primary);
+  color: var(--white);
 }
-input {
-  border: none;
-  outline: none;
-  padding: 8px;
+
+button.btn--secondary {
+  background-color: var(--secondary);
+  color: var(--white);
 }
-input:hover { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1); }
-button:focus { box-shadow: inset 0 0 0 2px #18A0FB; }
-#create:focus { box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.3); }
-input:focus { box-shadow: inset 0 0 0 2px #18A0FB; }
+
+button.btn--full-width {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  border-color: var(--lightgray);
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper,
+.content {
+  flex-grow: 1;
+  height: calc(100% - 24px);
+}
+
+.content.hide {
+  display: none;
+}
+
+.content--main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.code-field {
+  flex-grow: 1;
+}
+
+#copyBtn {
+  margin-top: 16px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}

@@ -1,10 +1,12 @@
 class TypoExtractor {
   TYPO = {
-    page: 'Typography'
+    page: 'Typography',
+    lead: 'lead prop'
   }
+
   constructor() {}
 
-  extractNodesFromFigma(): any {
+  extractNodes(): any {
     const nodes = figma.currentPage.findChild(node => node.name === this.TYPO.page);
     
     if (!nodes) {
@@ -14,9 +16,14 @@ class TypoExtractor {
     return nodes;
   }
 
-  extractHeadings(): string[] {
-    const nodes = this.extractNodesFromFigma();
-    const childrenNodes = this.flatten(nodes.children);
+  extractChildrenNodes(): any {
+    const nodes = this.extractNodes();
+
+    return this.flatten(nodes.children);
+  }
+
+  extractTypos(): any {
+    const childrenNodes = this.extractChildrenNodes();
     const headings = childrenNodes.filter(node => node.name === 'heading')
                           .reduce((map, heading) => {
                             const key = this.extractHeaderTag(heading.characters);
@@ -26,7 +33,24 @@ class TypoExtractor {
 
                             return map;
                           }, {});
-    return headings;
+
+    const lead = childrenNodes.filter(node => this.TYPO.lead === node.name)
+                              .reduce((map, lead) => {
+                                const key = '$lead-font-size'
+                                const value = `${lead.fontSize/16}rem`;
+
+                                map[key] = value;
+
+                                return map;
+                              }, {});
+
+    const typos =
+    {
+      headings: headings,
+      lead: lead
+    }
+
+    return typos;
   }
 
   extractHeaderTag(label): string {

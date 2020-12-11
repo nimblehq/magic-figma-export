@@ -10,12 +10,12 @@ figma.ui.onmessage = msg => {
 
     try {
       colorExtractor.extractColorVariables();
-      const headings = typoExtractor.extractHeadings();
+      const typos = typoExtractor.extractTypos();
 
       figma.ui.postMessage({
         mainColor: colorExtractor.mainColors,
         colorList: colorExtractor.colorList,
-        typos: headings
+        typos: typos
       });
     } catch (error) {
       figma.ui.postMessage({

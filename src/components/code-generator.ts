@@ -25,7 +25,10 @@ export class CodeGenerator {
     code += '\n';
 
     Object.keys(typos).forEach(typo => {
-      code += `${typo}: ${typos[typo]};\n`
+      Object.keys(typos[typo]).forEach(type => {
+        code += `${type}: ${typos[typo][type]};\n`
+      })
+      code += '\n';
     });
 
     return code;

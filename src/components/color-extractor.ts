@@ -26,7 +26,7 @@ export class ColorExtractor {
   extractColorVariables(): void {
     let colorSystem = figma.currentPage.findChild(node => node.name === this.NODE_NAMES.colorSystem);
 
-    if (colorSystem === null) {
+    if (!colorSystem) {
       throw new Error('Cannot find color system on this page. You might be on the wrong page 🤔');
     }
   

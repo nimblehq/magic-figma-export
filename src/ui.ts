@@ -16,7 +16,7 @@ document.getElementById('generate').onclick = () => {
 onmessage = (event) => {
   if (event.type === 'message') {
     const { mainColor, colorList } = event.data.pluginMessage;
-    if (mainColor != null && colorList != null) {
+    if (mainColor && colorList) {
       const code = new CodeGenerator().codeFromVariables(mainColor, colorList);
 
       toggleContent('main');

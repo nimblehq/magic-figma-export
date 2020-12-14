@@ -1,7 +1,7 @@
 export class CodeGenerator {
   constructor() {}
 
-  codeFromVariables(mainColors: {}, colorList: {}): string {
+  codeFromVariables(mainColors: {}, colorList: {}, typos: {}): string {
     let code = '';
     let currentColorGroup: string;
 
@@ -20,6 +20,14 @@ export class CodeGenerator {
 
     Object.keys(mainColors).forEach(colorName => {
       code += `${colorName}: ${mainColors[colorName]};\n`
+    });
+
+    Object.keys(typos).forEach(typo => {
+      code += '\n';
+      
+      Object.keys(typos[typo]).forEach(type => {
+        code += `${type}: ${typos[typo][type]};\n`
+      })
     });
 
     return code;

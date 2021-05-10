@@ -47,7 +47,6 @@ class TypoExtractor {
 
     const displays = childrenNodes.filter(node => this.TYPO.display === node.name)
                               .reduce((map, display) => {
-                                // const key = '$display-font-size'
                                 const key = this.extractDisplayTag(display.characters);
                                 const value = `${display.fontSize/16}rem`;
 

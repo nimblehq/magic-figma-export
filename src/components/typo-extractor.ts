@@ -1,7 +1,8 @@
 class TypoExtractor {
   TYPO = {
     page: 'Typography',
-    lead: 'lead prop'
+    lead: 'lead prop',
+    display: 'display prop'
   }
 
   constructor() {}
@@ -44,10 +45,22 @@ class TypoExtractor {
                                 return map;
                               }, {});
 
+    const displays = childrenNodes.filter(node => this.TYPO.display === node.name)
+                              .reduce((map, display) => {
+                                // const key = '$display-font-size'
+                                const key = this.extractDisplayTag(display.characters);
+                                const value = `${display.fontSize/16}rem`;
+
+                                map[key] = value;
+
+                                return map;
+                              }, {});
+
     const typos =
     {
       headings: headings,
-      lead: lead
+      lead: lead,
+      displays: displays
     }
 
     return typos;
@@ -55,6 +68,10 @@ class TypoExtractor {
 
   extractHeaderTag(label): string {
     return `$${label.split(".")[0]}-font-size`;
+  }
+
+  extractDisplayTag(label): string {
+    return `$${label.toLowerCase()}-size`;
   }
 
   flatten(arr): any {
